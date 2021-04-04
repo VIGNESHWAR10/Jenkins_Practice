@@ -28,3 +28,13 @@ public class ThemeParkRideController {
     }
     
 }
+
+@PostMapping(value = "/ride", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ThemeParkRide createRide(@Valid @RequestBody ThemeParkRide themeParkRide) {
+        return themeParkRideRepository.save(themeParkRide);
+    }
+
+@DeleteMapping(value = "/ride/{id}")
+    public void deleteRide(@PathVariable long id){
+        themeParkRideRepository.deleteById(id);
+    }
